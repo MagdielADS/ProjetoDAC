@@ -13,14 +13,20 @@
                 <p:messages id="messages" showDetail="true" autoUpdate="true"/>  
 
                 <h:panelGrid columns="2" id="matchGrid">                     
-                    <h:outputLabel for="pwd1" value="Nome: *" />  
-                    <p:inputText id="name" value="#{missionaryBean.password5}" size="60" required="true"/>  
+                    <h:outputLabel value="Nome: *" />  
+                    <p:inputText id="nome" value="#{missionaryBean.nome}" size="60" required="true"/>  
 
-                    <h:outputLabel for="pwd1" value="Rua: " />  
-                    <p:password id="pwd1" value="#{missionaryBean.password5}" size="60" required="true"/>  
+                    <h:outputLabel value="Contato: " />  
+                    <p:inputMask id="contato" value="#{missionaryBean.contato}" mask="(99) 9999-9999"/>  
 
-                    <h:outputLabel for="pwd2" value="Bairro: " />  
-                    <p:password id="pwd2" value="#{missionaryBean.password5}" size="60" required="true"/>  
+                    <h:outputLabel value="CPF: " />  
+                    <p:inputMask id="contato" value="#{missionaryBean.cpf}" mask="999.999.999-99"/>  
+                    
+                    <h:outputLabel value="Rua: " />  
+                    <p:inputText id="rua" value="#{missionaryBean.rua}" size="60"/>  
+
+                    <h:outputLabel value="Bairro: " />  
+                    <p:inputText id="bairro" value="#{missionaryBean.bairro}" size="60"/>  
 
                 </h:panelGrid>  
 

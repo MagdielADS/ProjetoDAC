@@ -27,14 +27,14 @@ public class Person implements Serializable{
     @Column(length=60)
     private String name;
     @OneToOne
-    @JoinColumn(name="id_endereco")
-    private Address addres;
+    @JoinColumn(name="id_address")
+    private Address address;
     
-    public Long getID() {
+    public Long getId() {
         return id;
     }
 
-    public void setID(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -43,7 +43,7 @@ public class Person implements Serializable{
     }
 
     public Address getAddres() {
-        return addres;
+        return address;
     }
 
     public void setName(String name) {
@@ -51,6 +51,6 @@ public class Person implements Serializable{
     }
 
     public void setAddress(Address addres) {
-        this.addres = addres;
+        this.address = addres;
     }
 }

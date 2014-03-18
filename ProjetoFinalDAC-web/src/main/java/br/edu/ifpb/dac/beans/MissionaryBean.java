@@ -1,5 +1,7 @@
 package br.edu.ifpb.dac.beans;
 
+import br.edu.ifpb.dac.interfaces.Management;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
 /**
@@ -9,49 +11,64 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean(name = "missionaryBean")
 public class MissionaryBean {
 
-    private String password1;
-    private String password2;
-    private String password3;
-    private String password4;
-    private String password5;
-
-    public String getPassword1() {
-        return password1;
+    @EJB
+    Management management;
+    
+    private String nome;
+    private String contato;
+    private String rua;
+    private String bairro;
+    private String cpf;
+    
+    public void persist(){
+        management.register(this);
     }
 
-    public void setPassword1(String password1) {
-        this.password1 = password1;
+    public String getNome() {
+        return nome;
     }
 
-    public String getPassword2() {
-        return password2;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void setPassword2(String password2) {
-        this.password2 = password2;
+    public String getContato() {
+        return contato;
     }
 
-    public String getPassword3() {
-        return password3;
+    public void setContato(String contato) {
+        this.contato = contato;
     }
 
-    public void setPassword3(String password3) {
-        this.password3 = password3;
+    public String getRua() {
+        return rua;
     }
 
-    public String getPassword4() {
-        return password4;
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 
-    public void setPassword4(String password4) {
-        this.password4 = password4;
+    public String getBairro() {
+        return bairro;
     }
 
-    public String getPassword5() {
-        return password5;
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
     }
 
-    public void setPassword5(String password5) {
-        this.password5 = password5;
+    public Management getManagement() {
+        return management;
+    }
+
+    public void setManagement(Management management) {
+        this.management = management;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }
