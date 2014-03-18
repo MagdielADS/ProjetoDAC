@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package br.edu.ifpb.dac.entities;
 
 import java.io.Serializable;
@@ -33,11 +27,8 @@ public class Person implements Serializable{
     private String name;
     @OneToOne
     @JoinColumn(name="id_address")
-<<<<<<< HEAD
     private Address address;
-=======
-    private Address addres;
->>>>>>> 5e9773d26ed7736f71a62cc034cd01a02cfe3a6b
+
     
     public Long getId() {
         return id;
