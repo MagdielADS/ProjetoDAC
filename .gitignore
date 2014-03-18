@@ -4,3 +4,6 @@
 *.jar
 *.war
 *.ear
+/ProjetoFinalDAC-ejb/target/
+/ProjetoFinalDAC-web/target/
+/ProjetoFinalDAC-ear/target/

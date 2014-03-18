@@ -7,8 +7,6 @@
 package br.edu.ifpb.dac.entities;
 
 import java.io.Serializable;
-import javax.mail.Address;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -25,34 +23,34 @@ import javax.persistence.OneToOne;
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Person implements Serializable{
     @Id
-    private Long ID;
+    private Long id;
     @Column(length=60)
     private String name;
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="ID")
-    private Address address;
+    @OneToOne
+    @JoinColumn(name="id_endereco")
+    private Addres addres;
     
     public Long getID() {
-        return ID;
+        return id;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public void setID(Long id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public Address getAddress() {
-        return address;
+    public Addres getAddres() {
+        return addres;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddress(Addres addres) {
+        this.addres = addres;
     }
 }
