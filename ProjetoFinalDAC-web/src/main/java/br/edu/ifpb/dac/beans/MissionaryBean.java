@@ -1,5 +1,8 @@
 package br.edu.ifpb.dac.beans;
 
+import br.edu.ifpb.dac.business.Management;
+import br.edu.ifpb.dac.entities.Missionary;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
 /**
@@ -8,18 +11,25 @@ import javax.faces.bean.ManagedBean;
  */
 @ManagedBean(name = "missionaryBean")
 public class MissionaryBean {
-
-//    @EJB
-//    Management management;
     
     private String nome;
     private String contato;
+    private String cpf;
     private String rua;
     private String bairro;
-    private String cpf;
     
-    public void persist(){
-  //      management.register(this);
+    @EJB
+    Management<Missionary> management;
+    
+    public void persist() {
+        Missionary missionary = new Missionary();
+        missionary.setName(nome);
+        missionary.setContact(contato);
+        missionary.getAddress().setStreet(rua);
+        missionary.getAddress().setDistrict(bairro);
+        missionary.setCpf(cpf);
+        
+        management.register(missionary);
     }
 
     public String getNome() {
