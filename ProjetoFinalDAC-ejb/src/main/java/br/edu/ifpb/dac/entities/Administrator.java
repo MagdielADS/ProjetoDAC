@@ -19,9 +19,9 @@ import javax.persistence.Id;
 @Entity
 @DiscriminatorValue("A")
 public class Administrator extends Person implements Serializable{
-    @Column(length=20)
+    @Column(length=20, nullable = false)
     private String login;
-    @Column(length=10)
+    @Column(length=10, nullable = false)
     private String password;
 
     public String getLogin() {

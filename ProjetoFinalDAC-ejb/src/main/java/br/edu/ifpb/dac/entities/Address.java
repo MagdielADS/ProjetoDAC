@@ -9,6 +9,8 @@ package br.edu.ifpb.dac.entities;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -18,26 +20,28 @@ import javax.persistence.Id;
 @Entity
 public class Address implements Serializable{
     @Id
-    private Long ID;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
     @Column(length=60)
     private String district;
     @Column(length=60)
     private String street;
-    private long number;
+    @Column(length=10)
+    private String number;
 
-    public Long getID() {
-        return ID;
+    public Long getId() {
+        return id;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getDistrict() {
         return district;
     }
 
-    public long getNumber() {
+    public String getNumber() {
         return number;
     }
 
@@ -49,7 +53,7 @@ public class Address implements Serializable{
         this.district = district;
     }
 
-    public void setNumber(long number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 

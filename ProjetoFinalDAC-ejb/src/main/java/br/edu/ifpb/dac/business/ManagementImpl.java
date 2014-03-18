@@ -21,13 +21,13 @@ import javax.persistence.PersistenceContext;
 @Stateless
 @Remote(Management.class)
 public class ManagementImpl implements Management{
-    @PersistenceContext(name="Scriba-PU")
-    private EntityManager manage;
+    @PersistenceContext(unitName="Scriba-PU")
+    private EntityManager manager;
     
 
     @Override
     public void registerTither(Tither tither) {
-        manage.persist(tither);
+        manager.persist(tither);
     }
 
     @Override
