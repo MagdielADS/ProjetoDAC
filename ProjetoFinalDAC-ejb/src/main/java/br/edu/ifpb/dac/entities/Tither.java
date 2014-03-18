@@ -11,6 +11,7 @@ import java.util.Set;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 
 /**
  *
@@ -18,6 +19,7 @@ import javax.persistence.ManyToMany;
  */
 @Entity
 @DiscriminatorValue("D")
+@NamedQuery(name = "Tither.findById", query = "select t from Tither t where t.id=:id")
 public class Tither extends Person implements Serializable{
    @ManyToMany
    private Set<Missionary> missionary;
