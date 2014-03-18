@@ -16,7 +16,7 @@ import javax.persistence.Id;
  * @author Magdiel Bruno
  */
 @Entity
-public class Addres implements Serializable{
+public class Address implements Serializable{
     @Id
     private Long ID;
     @Column(length=60)

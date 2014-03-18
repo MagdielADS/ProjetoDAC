@@ -28,7 +28,7 @@ public class Person implements Serializable{
     private String name;
     @OneToOne
     @JoinColumn(name="id_endereco")
-    private Addres addres;
+    private Address addres;
     
     public Long getID() {
         return id;
@@ -42,7 +42,7 @@ public class Person implements Serializable{
         return name;
     }
 
-    public Addres getAddres() {
+    public Address getAddres() {
         return addres;
     }
 
@@ -50,7 +50,7 @@ public class Person implements Serializable{
         this.name = name;
     }
 
-    public void setAddress(Addres addres) {
+    public void setAddress(Address addres) {
         this.addres = addres;
     }
 }
