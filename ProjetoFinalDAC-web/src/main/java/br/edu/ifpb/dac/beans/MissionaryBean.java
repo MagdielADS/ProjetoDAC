@@ -1,7 +1,5 @@
 package br.edu.ifpb.dac.beans;
 
-import br.edu.ifpb.dac.interfaces.Management;
-import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
 /**
@@ -11,8 +9,8 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean(name = "missionaryBean")
 public class MissionaryBean {
 
-    @EJB
-    Management management;
+//    @EJB
+//    Management management;
     
     private String nome;
     private String contato;
@@ -21,7 +19,7 @@ public class MissionaryBean {
     private String cpf;
     
     public void persist(){
-        management.register(this);
+  //      management.register(this);
     }
 
     public String getNome() {
@@ -54,14 +52,6 @@ public class MissionaryBean {
 
     public void setBairro(String bairro) {
         this.bairro = bairro;
-    }
-
-    public Management getManagement() {
-        return management;
-    }
-
-    public void setManagement(Management management) {
-        this.management = management;
     }
 
     public String getCpf() {
