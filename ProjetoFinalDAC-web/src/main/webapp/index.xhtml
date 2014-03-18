@@ -1,12 +1,35 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Login</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <img src="img/scriba_barra_logo.png"></img>
+        
+        <h:form id="Login">
+            <center>
+            <p:panel header="Login">  
+                <p:messages id="messages"  autoUpdate="true"/>  
+
+                <h:panelGrid columns="2" id="matchGrid">                     
+                    <h:outputLabel value="Login: *" />  
+                    <p:inputText id="Login" value="#{missionaryBean.cpf}"  required="true"/>  
+
+                    <h:outputLabel value="Senha: *" />  
+                    <p:password id="Senha" value="#{missionaryBean.nome}" required="true"/>  
+
+                    <h:outputLabel/>
+                    <p:commandButton id="saveButton" action="#{missionaryBean.persist()}" update="matchGrid" value="Salvar" /> 
+                </h:panelGrid>  
+
+
+            </p:panel> 
+                </center>
+        </h:form>
     </h:body>
+
 </html>
 

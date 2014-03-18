@@ -11,64 +11,86 @@ import javax.faces.bean.ManagedBean;
  */
 @ManagedBean(name = "missionaryBean")
 public class MissionaryBean {
-    
-    private String nome;
-    private String contato;
-    private String cpf;
-    private String rua;
-    private String bairro;
-    
+
+    Missionary missionary = new Missionary();
+//    private String nome;
+//    private String contato;
+//    private String cpf;
+//    private String rua;
+//    private String numero;
+//    private String bairro;
     @EJB
     Management<Missionary> management;
-    
+
     public void persist() {
-        Missionary missionary = new Missionary();
-        missionary.setName(nome);
-        missionary.setContact(contato);
-        missionary.getAddress().setStreet(rua);
-        missionary.getAddress().setDistrict(bairro);
-        missionary.setCpf(cpf);
-        
+//        Missionary missionary = new Missionary();
+//        missionary.setName(nome);
+//        missionary.setContact(contato);
+//        missionary.getAddress().setStreet(rua);
+//        missionary.getAddress().setDistrict(bairro);
+//        missionary.setCpf(cpf);
+//        missionary.getAddress().setNumber(numero);
+
         management.register(missionary);
     }
 
     public String getNome() {
-        return nome;
+//        return nome;
+        return missionary.getName();
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+//        this.nome = nome;
+        missionary.setName(nome);
     }
 
     public String getContato() {
-        return contato;
+//        return contato;
+        return missionary.getContact();
     }
 
     public void setContato(String contato) {
-        this.contato = contato;
+//        this.contato = contato;
+        missionary.setContact(contato);
     }
 
     public String getRua() {
-        return rua;
+//        return rua;
+        return missionary.getAddress().getStreet();
     }
 
     public void setRua(String rua) {
-        this.rua = rua;
+//        this.rua = rua;
+        missionary.getAddress().setStreet(rua);
+    }
+
+    public String getNumero() {
+//        return numero;
+        return missionary.getAddress().getNumber();
+    }
+
+    public void setNumero(String numero) {
+//        this.numero = numero;
+        missionary.getAddress().setNumber(numero);
     }
 
     public String getBairro() {
-        return bairro;
+//        return bairro;
+        return missionary.getAddress().getDistrict();
     }
 
     public void setBairro(String bairro) {
-        this.bairro = bairro;
+//        this.bairro = bairro;
+        missionary.getAddress().setDistrict(bairro);
     }
 
     public String getCpf() {
-        return cpf;
+//        return cpf;
+        return missionary.getCpf();
     }
 
     public void setCpf(String cpf) {
-        this.cpf = cpf;
+//        this.cpf = cpf;
+        missionary.setCpf(cpf);
     }
 }

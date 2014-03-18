@@ -5,41 +5,40 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Cadastrar missionário</title>
+        <title>Cadastrar Dizimista</title>
     </h:head>
     <h:body>
-        
         <ui:include src="menu.xhtml"/>
         <h:form id="Cadastrar">            
-            <p:panel header="Cadastro de Missionário">  
+            <p:panel header="Cadastro de Dizimista">  
                 <p:messages id="messages" autoUpdate="true"/>  
 
                 <h:panelGrid columns="2" id="matchGrid">                     
                     <h:outputLabel value="CPF: *" />  
                     <p:inputMask id="CPF" value="#{missionaryBean.cpf}" mask="999.999.999-99" required="true"/>  
-                    
+
                     <h:outputLabel value="Nome: *" />  
                     <p:inputText id="Nome" value="#{missionaryBean.nome}" size="60" required="true"/>  
-                    
+
                     <h:outputLabel value="Rua: " />  
                     <p:inputText id="Rua" value="#{missionaryBean.rua}" size="60"/>  
 
                     <h:outputLabel value="Numero: " />  
                     <p:inputText id="Número" value="#{missionaryBean.numero}" size="10"/>  
-                    
+
                     <h:outputLabel value="Bairro: " />  
                     <p:inputText id="Bairro" value="#{missionaryBean.bairro}" size="60"/>  
-                    
+
                     <h:outputLabel value="Contato: " />  
                     <p:inputMask id="Contato" value="#{missionaryBean.contato}" mask="(99) 9999-9999"/>  
 
                     <p:commandButton id="saveButton" action="#{missionaryBean.persist()}" update="matchGrid" value="Salvar" /> 
                 </h:panelGrid>  
 
-                
+
             </p:panel>  
 
-        </h:form>  
+        </h:form> 
     </h:body>
 </html>
 
