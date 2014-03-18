@@ -21,7 +21,7 @@ import javax.persistence.Query;
 @Stateful
 public class Facade {
 
-    @PersistenceContext(name = "Scriba-PU")
+    @PersistenceContext(unitName = "Scriba-PU")
     private EntityManager manager;
     
     @EJB

@@ -8,7 +8,10 @@ package br.edu.ifpb.dac.entities;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.ManyToOne;
@@ -23,9 +26,11 @@ import javax.persistence.TemporalType;
 @IdClass(TithePK.class)
 public class Tithe implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     @Id
     private long book; 
+    @Column(precision = 2, scale = 10)
     private double amount;
     @Temporal(TemporalType.DATE)
     private Calendar dateOfReceipt;

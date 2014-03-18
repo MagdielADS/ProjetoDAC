@@ -9,6 +9,8 @@ package br.edu.ifpb.dac.entities;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -23,12 +25,19 @@ import javax.persistence.OneToOne;
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Person implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @Column(length=60)
+    @Column(length=14, unique=true)
+    private String cpf;
+    @Column(length=80, nullable = false)
     private String name;
     @OneToOne
     @JoinColumn(name="id_address")
+<<<<<<< HEAD
     private Address address;
+=======
+    private Address addres;
+>>>>>>> 5e9773d26ed7736f71a62cc034cd01a02cfe3a6b
     
     public Long getId() {
         return id;
@@ -38,6 +47,14 @@ public class Person implements Serializable{
         this.id = id;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    
     public String getName() {
         return name;
     }
