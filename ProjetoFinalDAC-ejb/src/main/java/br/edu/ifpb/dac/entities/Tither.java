@@ -1,6 +1,7 @@
 package br.edu.ifpb.dac.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -23,10 +24,18 @@ public class Tither extends Person implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @ManyToMany
-    private List<Missionary> missionary;
+    private List<Missionary> missionary = new ArrayList<>();
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_address")
-    private Address address;
+    private Address address;    
+
+    public Tither() {
+        address = new Address();
+    }
+    
+    public void addMissionary(Missionary missionary1){
+        missionary.add(missionary1);
+    }
 
     public Long getId() {
         return id;

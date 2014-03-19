@@ -1,10 +1,16 @@
 package br.edu.ifpb.dac.beans;
 
+//     tither.setName("TESTE");
+//        tither.setCpf("444");
+//        tither.getAddress().setStreet("RUA");
+//        tither.getAddress().setDistrict("BAIRRO");
+//        tither.getAddress().setNumber("101");
+     
+
+
 import br.edu.ifpb.dac.interfaces.Management;
 import br.edu.ifpb.dac.entities.Missionary;
 import br.edu.ifpb.dac.entities.Tither;
-import java.util.ArrayList;
-import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
@@ -18,17 +24,32 @@ public class TitherBean {
     @EJB
     Management<Tither> management;
     private Tither tither = new Tither();
-    private List<Missionary> missionarys = new ArrayList<>();
+    
     private Long m1;
     private Long m2;
     private Long m3;
 
-//    private String nome;
-//    private String cpf;
-//    private String rua;
-//    private String numero;
-//    private String bairro;
-//    private String contato;
+    
+    
+    public void persist() {
+        tither.addMissionary(missionary1());
+        tither.addMissionary(missionary2());
+        tither.addMissionary(missionary3());
+        
+        management.register(tither);
+    }
+    
+    public Missionary missionary1(){
+        return management.searchMissionaryForId(m1);
+    }
+    public Missionary missionary2(){
+        return management.searchMissionaryForId(m2);
+    }
+    
+    public Missionary missionary3(){
+        return management.searchMissionaryForId(m3);
+    }
+    
     public String getNome() {
         return tither.getName();
     }
@@ -68,48 +89,6 @@ public class TitherBean {
     public void setBairro(String bairro) {
         tither.getAddress().setDistrict(bairro);
     }
-
-    public void addMissionary () {
-        missionarys.add(missionary1());
-        missionarys.add(missionary1());
-        missionarys.add(missionary1());
-        //tither.setMissionary(missionarys);
-    }
-    public void persist() {
-        tither.setName("TESTE");
-        tither.setCpf("444");
-        tither.getAddress().setStreet("RUA");
-        tither.getAddress().setDistrict("BAIRRO");
-        tither.getAddress().setNumber("101");
-        missionarys.add(missionary1());
-        missionarys.add(missionary1());
-        missionarys.add(missionary1());
-        tither.setMissionary(missionarys);
-        management.register(tither);
-    }
-
-    public Missionary missionary1(){
-        return management.searchMissionaryForId(m1);
-    }
-    public Missionary missionary2(){
-        return management.searchMissionaryForId(m2);
-    }
-    
-    public Missionary missionary3(){
-        return management.searchMissionaryForId(m3);
-    }
-    
-//    public void missionary1() {
-//        tither.addMissionary(management.searchMissionaryForId(m1));
-//    }
-//
-//    public void missionary2() {
-//        tither.addMissionary(management.searchMissionaryForId(m1));
-//    }
-//
-//    public void missionary3() {
-//        tither.addMissionary(management.searchMissionaryForId(m1));
-//    }
 
     public Long getM1() {
         return m1;
