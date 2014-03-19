@@ -8,31 +8,37 @@
         <title>Cadastrar Dizimista</title>
     </h:head>
     <h:body>
-        <ui:include src="menu.xhtml"/>
+        <ui:include src="../menubar.xhtml"/>
         <h:form id="Cadastrar">            
             <p:panel header="Cadastro de Dizimista">  
                 <p:messages id="messages" autoUpdate="true"/>  
 
                 <h:panelGrid columns="2" id="matchGrid">                     
                     <h:outputLabel value="CPF: *" />  
-                    <p:inputMask id="CPF" value="#{missionaryBean.cpf}" mask="999.999.999-99" required="true"/>  
+                    <p:inputMask id="CPF" value="#{titherBean.cpf}" mask="999.999.999-99" required="true"/>  
 
                     <h:outputLabel value="Nome: *" />  
-                    <p:inputText id="Nome" value="#{missionaryBean.nome}" size="60" required="true"/>  
+                    <p:inputText id="Nome" value="#{titherBean.nome}" size="60" required="true"/>  
 
                     <h:outputLabel value="Rua: " />  
-                    <p:inputText id="Rua" value="#{missionaryBean.rua}" size="60"/>  
+                    <p:inputText id="Rua" value="#{titherBean.rua}" size="60"/>  
 
                     <h:outputLabel value="Numero: " />  
-                    <p:inputText id="Número" value="#{missionaryBean.numero}" size="10"/>  
+                    <p:inputText id="Número" value="#{titherBean.numero}" size="10"/>  
 
                     <h:outputLabel value="Bairro: " />  
-                    <p:inputText id="Bairro" value="#{missionaryBean.bairro}" size="60"/>  
+                    <p:inputText id="Bairro" value="#{titherBean.bairro}" size="60"/>  
 
-                    <h:outputLabel value="Contato: " />  
-                    <p:inputMask id="Contato" value="#{missionaryBean.contato}" mask="(99) 9999-9999"/>  
+                    <h:outputLabel value="Missionário 1: " />  
+                    <p:inputText id="m1" value="#{titherBean.m1}" size="10"/>  
+                    
+                    <h:outputLabel value="Missionário 2: " />  
+                    <p:inputText id="m2" value="#{titherBean.m2}" size="10"/>  
+                    
+                    <h:outputLabel value="Missionário 3: " />  
+                    <p:inputText id="m3" value="#{titherBean.m3}" size="10"/>                      
 
-                    <p:commandButton id="saveButton" action="#{missionaryBean.persist()}" update="matchGrid" value="Salvar" /> 
+                    <p:commandButton id="saveButton" action="#{titherBean.persist()}" update="matchGrid" value="Salvar" /> 
                 </h:panelGrid>  
 
 

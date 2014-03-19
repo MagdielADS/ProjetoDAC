@@ -9,7 +9,7 @@
     </h:head>
     <h:body>
         
-        <ui:include src="menu.xhtml"/>
+        <ui:include src="../menubar.xhtml"/>
         <h:form id="Cadastrar">            
             <p:panel header="Cadastro de Missionário">  
                 <p:messages id="messages" autoUpdate="true"/>  
@@ -30,9 +30,24 @@
                     <h:outputLabel value="Bairro: " />  
                     <p:inputText id="Bairro" value="#{missionaryBean.bairro}" size="60"/>  
                     
-                    <h:outputLabel value="Contato: " />  
-                    <p:inputMask id="Contato" value="#{missionaryBean.contato}" mask="(99) 9999-9999"/>  
-
+                    <h:outputLabel value="DDD 1: " />  
+                    <p:inputMask id="ddd1" value="#{missionaryBean.d1}" mask="(999)"/>  
+                    
+                    <h:outputLabel value="Fone 1: " />  
+                    <p:inputMask id="Fone1" value="#{missionaryBean.f1}" mask="9999-9999"/>  
+                    
+                    <h:outputLabel value="DDD 2: " />  
+                    <p:inputMask id="ddd2" value="#{missionaryBean.d2}" mask="(999)"/>  
+                    
+                    <h:outputLabel value="Fone 2: " />  
+                    <p:inputMask id="Fone2" value="#{missionaryBean.f2}" mask="9999-9999"/>  
+                    
+                    <h:outputLabel value="DDD 3: " />  
+                    <p:inputMask id="ddd3" value="#{missionaryBean.d3}" mask="(999)"/>  
+                    
+                    <h:outputLabel value="Fone 3: " />  
+                    <p:inputMask id="Fone3" value="#{missionaryBean.f3}" mask="9999-9999"/>  
+                    
                     <p:commandButton id="saveButton" action="#{missionaryBean.persist()}" update="matchGrid" value="Salvar" /> 
                 </h:panelGrid>  
 

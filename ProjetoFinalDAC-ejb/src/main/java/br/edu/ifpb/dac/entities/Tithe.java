@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package br.edu.ifpb.dac.entities;
 
 import java.io.Serializable;
@@ -36,8 +30,6 @@ public class Tithe implements Serializable{
     private Calendar dateOfReceipt;
     @ManyToOne
     private Tither tither;
-    @ManyToOne
-    private Administrator user;
 
     public Long getId() {
         return id;
@@ -59,10 +51,6 @@ public class Tithe implements Serializable{
         return tither;
     }
 
-    public Administrator getUser() {
-        return user;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -82,10 +70,4 @@ public class Tithe implements Serializable{
     public void setTither(Tither tither) {
         this.tither = tither;
     }
-
-    public void setUser(Administrator user) {
-        this.user = user;
-    }
-    
-    
 }

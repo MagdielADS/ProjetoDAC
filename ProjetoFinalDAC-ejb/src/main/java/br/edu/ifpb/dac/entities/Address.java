@@ -20,7 +20,7 @@ import javax.persistence.Id;
 @Entity
 public class Address implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "seq_address", strategy = GenerationType.SEQUENCE)
     private Long id;
     @Column(length=60)
     private String district;

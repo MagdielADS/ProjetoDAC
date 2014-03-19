@@ -1,6 +1,8 @@
 package br.edu.ifpb.dac.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -18,18 +21,21 @@ import javax.persistence.OneToOne;
 public class Missionary extends Person implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "seq_missionary", strategy = GenerationType.SEQUENCE)
     private Long id;
-    @Column(length = 20)
-    private String contact;
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_address")
     private Address address;
+    @OneToMany(cascade = {CascadeType.ALL})
+    private List<Phone> phones = new ArrayList<>();;
 
     public Missionary() {
         address = new Address();
     }
 
+    public void addPhone(Phone phone){
+        phones.add(phone);
+    }
     
     
     public Long getId() {
@@ -40,19 +46,19 @@ public class Missionary extends Person implements Serializable {
         this.id = id;
     }
 
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
-
     public Address getAddress() {
         return address;
     }
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public List<Phone> getPhones() {
+        return phones;
+    }
+
+    public void setPhones(List<Phone> phones) {
+        this.phones = phones;
     }
 }

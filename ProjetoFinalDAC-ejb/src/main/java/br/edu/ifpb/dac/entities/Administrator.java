@@ -20,7 +20,7 @@ import javax.persistence.Id;
 public class Administrator extends Person implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "seq_administrator", strategy = GenerationType.SEQUENCE)
     private Long id;
     @Column(length = 20, nullable = false)
     private String login;

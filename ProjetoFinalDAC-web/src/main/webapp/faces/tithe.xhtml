@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Dízimo</title>
+    </h:head>
+    <h:body>
+        <ui:include src="../menubar.xhtml"/>
+        <h:form id="Cadastrar">            
+            <p:panel header="Lançar Dízimo">  
+                <p:messages id="messages" autoUpdate="true"/>  
+
+                <h:panelGrid columns="2" id="matchGrid">                     
+                    <h:outputLabel value="Livro: *" />  
+                    <p:inputText id="Livro" value="#{titherBean.nome}" size="10" required="true"/>  
+
+                    <h:outputLabel value="Valor: *" />  
+                    <p:inputText id="Quantidade" value="#{titherBean.rua}" size="10" required="true"/>  
+
+                    <h:outputLabel value="Dizimista: *" />  
+                    <p:inputText id="Dizimista" value="#{titherBean.numero}" size="10" required="true"/>  
+
+                    <h:outputLabel value="Bairro: *" />  
+                    <p:inputText id="Bairro" value="#{titherBean.bairro}" size="10" required="true"/>                 
+
+                    <p:commandButton id="saveButton" action="#{titherBean.persist()}" update="matchGrid" value="Salvar" /> 
+                </h:panelGrid>  
+
+
+            </p:panel>  
+        </h:form>
+    </h:body>
+    
+</html>
+

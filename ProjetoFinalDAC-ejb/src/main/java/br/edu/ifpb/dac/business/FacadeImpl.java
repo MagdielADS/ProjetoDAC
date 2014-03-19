@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.edu.ifpb.dac.business;
 
 import br.edu.ifpb.dac.entities.Administrator;
@@ -46,7 +41,8 @@ public class FacadeImpl implements Facade{
             query.setParameter("login", login);
             query.setParameter("password", password);
             this.userLogged = (Administrator) query.getSingleResult();
-            return "sucesso";
+            counter.addUser();
+            return "/faces/menu.xhtml";
         } catch (Exception e) {
             return "erro";
         }
