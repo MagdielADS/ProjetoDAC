@@ -19,7 +19,6 @@ import javax.persistence.NamedQuery;
  * @author Magdiel Bruno
  */
 @Entity
-@NamedQuery(name = "Tither.findById", query = "select t from Tither t where t.id=:id")
 public class Tither extends Person implements Serializable {
 
     @Id

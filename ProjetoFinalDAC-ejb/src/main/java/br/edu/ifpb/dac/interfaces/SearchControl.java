@@ -13,7 +13,9 @@ import java.util.List;
  * @author filipe
  */
 public interface SearchControl {
-    public List<Tither> getTithers();
-    public List<Missionary> getMissionaries();
-    public Tither getTitherById(long id);
+    public long searchQtdeMissionary();
+    public long searchQtdeTither();
+    public String searchNameMissionaryById(long id);
+    public String searchNameTitherById(long id);
+    public String searchDistrictMissionary(String name);
 }

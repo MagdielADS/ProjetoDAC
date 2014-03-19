@@ -20,30 +20,36 @@ public class SearchControlImpl implements SearchControl{
     @PersistenceContext(name = "Scriba-PU")
     private EntityManager manager;
     
-    
     @Override
-    public List<Tither> getTithers() {
-        Query query = manager.createQuery("select t from Tither t");
-        List<Tither> tithers = query.getResultList();
-        return tithers;
-    }
-
-    @Override
-    public List<Missionary> getMissionaries() {
-        Query query = manager.createQuery("select m from Missionary m");
-        List<Missionary> missionaries = query.getResultList();
-        return missionaries;
-    }
-
-    @Override
-    public Tither getTitherById(long id) {
-        Query query = manager.createNamedQuery("Tither.findById");
+    public String searchNameMissionaryById(long id) {
+        Query query = manager.createQuery("select m.name from Missionary m where m.id=:id");
         query.setParameter("id", id);
-        return (Tither) query.getSingleResult();
-        
-//        Tither tither = (Tither) manager.createNamedQuery("Tither.findById")
-//                .setParameter("id", id)
-//                .getSingleResult();
-//        return tither;
+        return (String) query.getSingleResult();
+    }
+
+    @Override
+    public long searchQtdeMissionary() {
+        Query query = manager.createQuery("select count(m) from Missionary m");
+        return (long) query.getSingleResult();
+    }
+
+    @Override
+    public long searchQtdeTither() {
+        Query query = manager.createQuery("select count(t) from Tither t");
+        return (long) query.getSingleResult();
+    }
+
+    @Override
+    public String searchNameTitherById(long id) {
+        Query query = manager.createQuery("select t.name from Tither t where t.id=:id");
+        query.setParameter("id", id);
+        return (String) query.getSingleResult();
+    }
+
+    @Override
+    public String searchDistrictMissionary(String name) {
+        Query query = manager.createQuery("select m.address.district from Missionary m where m.name=:name");
+        query.setParameter("name", name);
+        return (String) query.getSingleResult();
     }
 }

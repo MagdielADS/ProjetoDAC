@@ -7,7 +7,9 @@ package br.edu.ifpb.dac.business;
 
 import br.edu.ifpb.dac.entities.Administrator;
 import br.edu.ifpb.dac.entities.Tithe;
+import br.edu.ifpb.dac.interfaces.Facade;
 import javax.ejb.EJB;
+import javax.ejb.Local;
 import javax.ejb.Remove;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
@@ -19,7 +21,8 @@ import javax.persistence.Query;
  * @author Magdiel Bruno
  */
 @Stateful
-public class Facade {
+@Local(Facade.class)
+public class FacadeImpl implements Facade{
 
     @PersistenceContext(unitName = "Scriba-PU")
     private EntityManager manager;
@@ -37,15 +40,15 @@ public class Facade {
         this.userLogged = userLogged;
     }
     
-    public boolean authUser(String login, String password) {
+    public String authUser(String login, String password) {
         try {
             Query query = manager.createQuery("select a from Administrator a where a.login = :login and a.password = :password");
             query.setParameter("login", login);
             query.setParameter("password", password);
             this.userLogged = (Administrator) query.getSingleResult();
-            return true;
+            return "sucesso";
         } catch (Exception e) {
-            return false;
+            return "erro";
         }
     }
     
