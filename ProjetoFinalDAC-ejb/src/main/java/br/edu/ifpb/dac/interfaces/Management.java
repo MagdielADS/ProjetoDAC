@@ -1,6 +1,5 @@
 package br.edu.ifpb.dac.interfaces;
 
-import br.edu.ifpb.dac.entities.Administrator;
 import br.edu.ifpb.dac.entities.Missionary;
 import br.edu.ifpb.dac.entities.Tither;
 import javax.ejb.Local;

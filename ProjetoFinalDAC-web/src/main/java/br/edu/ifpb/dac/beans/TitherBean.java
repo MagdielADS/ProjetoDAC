@@ -1,13 +1,5 @@
 package br.edu.ifpb.dac.beans;
 
-//     tither.setName("TESTE");
-//        tither.setCpf("444");
-//        tither.getAddress().setStreet("RUA");
-//        tither.getAddress().setDistrict("BAIRRO");
-//        tither.getAddress().setNumber("101");
-     
-
-
 import br.edu.ifpb.dac.interfaces.Management;
 import br.edu.ifpb.dac.entities.Missionary;
 import br.edu.ifpb.dac.entities.Tither;
