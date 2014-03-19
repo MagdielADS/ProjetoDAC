@@ -10,5 +10,6 @@
     <module>ProjetoFinalDAC-ear</module>
     <module>ProjetoFinalDAC-web</module>
     <module>ProjetoFinalDAC-ejb</module>
+    <module>ClientProjetoFinalDAC</module>
   </modules>
 </project>

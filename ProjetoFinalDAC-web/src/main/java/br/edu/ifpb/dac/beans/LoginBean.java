@@ -37,4 +37,8 @@ public class LoginBean {
     public String auth(){
        return facade.authUser(this.login, this.password);
     }
+    
+    public void logout(){
+        facade.logout();
+    }
 }
