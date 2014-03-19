@@ -2,6 +2,7 @@ package br.edu.ifpb.dac.entities;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -63,8 +64,8 @@ public class Tithe implements Serializable{
         this.amount = value;
     }
 
-    public void setDate(Calendar date) {
-        this.dateOfReceipt = date;
+    public void setDate() {
+        this.dateOfReceipt = Calendar.getInstance();
     }
 
     public void setTither(Tither tither) {
