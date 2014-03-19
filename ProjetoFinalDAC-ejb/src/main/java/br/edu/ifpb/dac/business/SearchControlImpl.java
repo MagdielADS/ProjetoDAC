@@ -1,9 +1,6 @@
 package br.edu.ifpb.dac.business;
 
-import br.edu.ifpb.dac.entities.Missionary;
-import br.edu.ifpb.dac.entities.Tither;
 import br.edu.ifpb.dac.interfaces.SearchControl;
-import java.util.List;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -16,21 +13,28 @@ import javax.persistence.Query;
  */
 @Stateless
 @Remote(SearchControl.class)
-public class SearchControlImpl implements SearchControl{
+public class SearchControlImpl implements SearchControl {
+
     @PersistenceContext(name = "Scriba-PU")
     private EntityManager manager;
-    
+
     @Override
     public String searchNameMissionaryById(long id) {
-        Query query = manager.createQuery("select m.name from Missionary m where m.id=:id");
-        query.setParameter("id", id);
-        return (String) query.getSingleResult();
+        try {
+            Query query = manager.createQuery("select m.name from Missionary m where m.id=:id");
+            query.setParameter("id", id);
+            return (String) query.getSingleResult();
+        } catch (Exception e) {
+            return "Missionário não encontrado";
+        }
     }
 
     @Override
     public long searchQtdeMissionary() {
         Query query = manager.createQuery("select count(m) from Missionary m");
         return (long) query.getSingleResult();
+
+
     }
 
     @Override
@@ -41,15 +45,23 @@ public class SearchControlImpl implements SearchControl{
 
     @Override
     public String searchNameTitherById(long id) {
-        Query query = manager.createQuery("select t.name from Tither t where t.id=:id");
-        query.setParameter("id", id);
-        return (String) query.getSingleResult();
+        try {
+            Query query = manager.createQuery("select t.name from Tither t where t.id=:id");
+            query.setParameter("id", id);
+            return (String) query.getSingleResult();
+        } catch (Exception e) {
+            return "Dizimista não encontrado";
+        }
     }
 
     @Override
     public String searchDistrictMissionary(String name) {
-        Query query = manager.createQuery("select m.address.district from Missionary m where m.name=:name");
-        query.setParameter("name", name);
-        return (String) query.getSingleResult();
+        try {
+            Query query = manager.createQuery("select m.address.district from Missionary m where m.cpf=:cpf");
+            query.setParameter("cpf", name);
+            return (String) query.getSingleResult();
+        } catch (Exception e) {
+            return "Bairro não encontrado ou missionário não cadastrado";
+        }
     }
 }

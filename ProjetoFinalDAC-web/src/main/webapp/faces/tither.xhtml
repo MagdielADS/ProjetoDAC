@@ -30,13 +30,13 @@
                     <p:inputText id="Bairro" value="#{titherBean.bairro}" size="60"/>  
 
                     <h:outputLabel value="Missionário 1: " />  
-                    <p:inputText id="m1" value="#{titherBean.m1}" size="10"/>  
+                    <p:inputText id="m1" value="#{titherBean.m1}" size="10" rendered="true"/>  
                     
                     <h:outputLabel value="Missionário 2: " />  
-                    <p:inputText id="m2" value="#{titherBean.m2}" size="10"/>  
+                    <p:inputText id="m2" value="#{titherBean.m2}" size="10" rendered="true"/>  
                     
                     <h:outputLabel value="Missionário 3: " />  
-                    <p:inputText id="m3" value="#{titherBean.m3}" size="10"/>                      
+                    <p:inputText id="m3" value="#{titherBean.m3}" size="10" required="true"/>                      
 
                     <p:commandButton id="saveButton" action="#{titherBean.persist()}" update="matchGrid" value="Salvar" /> 
                 </h:panelGrid>  

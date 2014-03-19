@@ -22,9 +22,9 @@ public class App {
             InitialContext ic = new InitialContext();
             SearchControl control = (SearchControl)ic.lookup("java:global/ProjetoFinalDAC-ear/ProjetoFinalDAC-ejb-1.0-SNAPSHOT/SearchControlImpl!br.edu.ifpb.dac.interfaces.SearchControl");
             
-            System.out.println("Nome do missionario: "+control.searchNameMissionaryById(251));
+            System.out.println("Nome do missionario: "+control.searchNameMissionaryById(33));
             System.out.println("Total de missionários: "+control.searchQtdeMissionary());
-            System.out.println("Bairro do misionario: "+control.searchDistrictMissionary("José"));
+            System.out.println("Bairro do misionario: "+control.searchDistrictMissionary("test"));
             
         }catch(NamingException ex){
             Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
