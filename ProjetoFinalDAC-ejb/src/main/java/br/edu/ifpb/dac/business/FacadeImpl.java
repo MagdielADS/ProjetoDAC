@@ -53,7 +53,8 @@ public class FacadeImpl implements Facade{
     }
     
     @Remove
-    public void logout() {
+    public String logout() {
         counter.deductUser();
+        return "index";
     }
 }
