@@ -55,6 +55,6 @@ public class FacadeImpl implements Facade{
     @Remove
     public String logout() {
         counter.deductUser();
-        return "index";
+        return "/index.xhtml";
     }
 }
